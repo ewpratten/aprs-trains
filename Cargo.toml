@@ -1,17 +1,22 @@
 [package]
-name = "<crate_name>"
+name = "aprs-trains"
 version = "0.1.0"
 authors = ["Evan Pratten <ewpratten@gmail.com>"]
 edition = "2021"
-description = "<description>"
-documentation = "https://docs.rs/<crate_name>"
+description = "Converts train locations to APRS objects"
 readme = "README.md"
-homepage = "https://github.com/ewpratten/<repo_name>"
-repository = "https://github.com/ewpratten/<repo_name>"
+homepage = "https://github.com/ewpratten/aprs-trains"
+repository = "https://github.com/ewpratten/aprs-trains"
 license = "GPL-3.0"
 keywords = []
 categories = []
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
+reqwest = { version = "^0.11.13", features = ["json"] }
+serde = { version = "^1.0.126", features = ["derive"] }
+tokio = { version = "^1.23.0", features = ["macros", "rt-multi-thread"] }
+clap = { version = "^4.0.29", features = ["derive"] }
+# chrono = "^0.4.23"
+aprs-encode = "^0.1.2"
+arrayvec = "^0.7"
