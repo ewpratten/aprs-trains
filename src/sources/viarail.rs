@@ -1,3 +1,5 @@
+//! Data source: https://tsimobile.viarail.ca
+
 use std::collections::HashMap;
 
 use crate::train::TrainInfo;

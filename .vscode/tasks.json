@@ -20,9 +20,25 @@
 			"args": [
 				"--",
 				"-c",
-				"VA3UJF-1",
+				"TRAINS",
 				"-p",
-				"23728"
+				"10410"
+			]
+		},
+		{
+			"type": "cargo",
+			"command": "run",
+			"problemMatcher": [
+				"$rustc"
+			],
+			"label": "rust: cargo run (dry run)",
+			"args": [
+				"--",
+				"-c",
+				"N0CALL",
+				"-p",
+				"12345",
+				"--dry-run"
 			]
 		}
 	]

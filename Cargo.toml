@@ -17,6 +17,7 @@ reqwest = { version = "^0.11.13", features = ["json"] }
 serde = { version = "^1.0.126", features = ["derive"] }
 tokio = { version = "^1.23.0", features = ["macros", "rt-multi-thread"] }
 clap = { version = "^4.0.29", features = ["derive"] }
-# chrono = "^0.4.23"
 aprs-encode = "^0.1.2"
 arrayvec = "^0.7"
+serde-xml-rs = "^0.6.0"
+regex = "^1.7.0"

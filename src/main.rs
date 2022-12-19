@@ -32,26 +32,28 @@ pub async fn main() {
         println!("{}", packet);
 
         // Push the packet to the server
-        let response = client
-            .post("http://rotate.aprs.net:8080/")
-            .header("Accept-Type", "text/plain")
-            .header("Content-Type", "application/octet-stream")
-            .body(format!(
-                "user {} pass {} vers aprs-trains 0.1.0\n{}",
-                args.callsign, args.password, packet
-            ))
-            .timeout(Duration::from_secs(3))
-            .send()
-            .await;
+        if !args.dry_run {
+            let response = client
+                .post("http://rotate.aprs.net:8080/")
+                .header("Accept-Type", "text/plain")
+                .header("Content-Type", "application/octet-stream")
+                .body(format!(
+                    "user {} pass {} vers aprs-trains 0.1.0\n{}",
+                    args.callsign, args.password, packet
+                ))
+                .timeout(Duration::from_secs(3))
+                .send()
+                .await;
 
-        if let Ok(response) = response {
-            println!("<- {}", response.status());
-        } else {
-            let err = response.unwrap_err();
-            if err.is_timeout() {
-                println!("<- TIMED OUT");
+            if let Ok(response) = response {
+                println!("<- {}", response.status());
             } else {
-                println!("<- ERR: {:?}", err);
+                let err = response.unwrap_err();
+                if err.is_timeout() {
+                    println!("<- TIMED OUT");
+                } else {
+                    println!("<- ERR: {:?}", err);
+                }
             }
         }
     }

@@ -11,4 +11,8 @@ pub struct Args {
     /// The password to use for the callsign
     #[clap(short, long)]
     pub password: String,
+
+    /// Do a dry run (no publishing)
+    #[clap(short, long)]
+    pub dry_run: bool,
 }
