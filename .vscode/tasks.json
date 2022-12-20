@@ -18,6 +18,8 @@
 			],
 			"label": "rust: cargo run",
 			"args": [
+				"--target",
+				"x86_64-unknown-linux-musl",
 				"--",
 				"-c",
 				"TRAINS",
@@ -33,6 +35,8 @@
 			],
 			"label": "rust: cargo run (dry run)",
 			"args": [
+				"--target",
+				"x86_64-unknown-linux-musl",
 				"--",
 				"-c",
 				"N0CALL",
