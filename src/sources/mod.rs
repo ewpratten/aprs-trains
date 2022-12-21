@@ -9,7 +9,8 @@ pub async fn get_trains() -> Result<Vec<TrainInfo>, reqwest::Error> {
 
     // Collect data
     output.extend(viarail::get_trains().await?);
-    output.extend(gotransit::get_trains().await?);
+    // TMP DISABLE
+    // output.extend(gotransit::get_trains().await?);
 
     // Return output
     Ok(output)
